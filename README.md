@@ -1,7 +1,7 @@
 # prova-ci-fernando-ferreira
 Repositório para avaliação P2 de LAB de DES MULTI do sexto período do curso de DSM da FATEC de Jacareí - Nov/2025
 
-Este projeto implementa um pipeline de CI básico com GitHub Actions, conforme solicitado na atividade.
+Este projeto implementa um pipeline de CI básico com GitHub Actions para um projeto TypeScript.
 
 ## Como Rodar Localmente
 
@@ -23,13 +23,13 @@ Este projeto implementa um pipeline de CI básico com GitHub Actions, conforme s
 
 O pipeline de integração contínua está definido no ficheiro `.github/workflows/ci.yml`.
 
-[cite_start]Ele é acionado automaticamente em duas situações[cite: 11]:
-* [cite_start]Ao realizar `push` na *branch* `main`[cite: 12].
-* [cite_start]Ao abrir um `pull request` para a *branch* `main`[cite: 14].
+[cite_start]Ele é acionado automaticamente em duas situações[cite: 12, 14]:
+* Ao realizar `push` na *branch* `main`.
+* Ao abrir um `pull request` para a *branch* `main`.
 
 O pipeline executa as seguintes etapas:
-1.  [cite_start]**Checkout do código**[cite: 16]: Faz o download do código.
-2.  [cite_start]**Instalar dependências**[cite: 17]: Executa `npm install`.
-3.  [cite_start]**Executar testes**: Executa `npm test`.
+1.  [cite_start]**Checkout do código**[cite: 16].
+2.  [cite_start]**Instalar dependências**: Executa `npm install`[cite: 17].
+3.  [cite_start]**Executar testes**: Executa `npm test` (que agora usa `ts-jest` para os testes em TypeScript)[cite: 18].
 
-[cite_start]Se qualquer uma das etapas falhar (especialmente os testes), o pipeline será marcado como "failed" no GitHub[cite: 20].
+[cite_start]Se qualquer etapa falhar, o pipeline será marcado como "failed"[cite: 20].
