@@ -1,0 +1,42 @@
+name: CI Pipeline da Prova
+
+# Controla quando o workflow será executado
+on:
+  # Executa em push para a branch main [cite: 12]
+  push:
+    branches: [ main ]
+  # Executa ao abrir um pull request para a branch main [cite: 14]
+  pull_request:
+    branches: [ main ]
+
+# Define os trabalhos (jobs) que o pipeline irá executar
+jobs:
+  build-and-test:
+    # O tipo de máquina virtual para executar o trabalho
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout do código [cite: 16]
+      # Faz o download do código do seu repositório para a máquina virtual
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Configura a versão do Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Pode ajustar a versão se necessário
+
+      # 2. Instalação das dependências [cite: 17]
+      # Executa o comando "npm install"
+      - name: Instalar dependências
+        run: npm install
+
+      # 3. Execução dos testes automatizados 
+      # Executa o comando "npm test"
+      - name: Executar testes
+        run: npm test
+
+      # 4. Geração de relatório (implícito) [cite: 19]
+      # O GitHub Actions irá reportar automaticamente o status
+      # Se o 'npm test' falhar, o pipeline inteiro falha [cite: 20]
