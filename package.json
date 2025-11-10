@@ -1,8 +1,9 @@
 {
   "name": "prova-ci-fernando-ferreira",
   "version": "1.0.0",
-  "description": "Repositório para avaliação P2 de LAB de DES MULTI do sexto período do curso de DSM da FATEC de Jacareí - Nov/2025",
+  "description": "Avaliação P2 de LAB de DES MULTIIPLATAFORMA - Fernando Ferreira",
   "main": "index.js",
+
   "scripts": {
     "test": "jest"
   },
