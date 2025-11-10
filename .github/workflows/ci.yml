@@ -10,19 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Ativar pnpm com Corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      - name: Instalar pnpm
+        run: npm install -g pnpm
 
       - name: Instalar dependências
         run: pnpm install
