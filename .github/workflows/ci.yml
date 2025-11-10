@@ -1,37 +1,29 @@
-name: CI Pipeline da Prova (TypeScript)
+name: CI
 
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout do código
       - name: Checkout do código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Configura a versão do Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
           cache: 'pnpm'
 
-      # Configurar pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
+      - name: Instalar pnpm
+        run: npm install -g pnpm
 
-      # 2. Instalação das dependências com pnpm
-      - name: Instalar dependências (pnpm)
+      - name: Instalar dependências
         run: pnpm install
 
-      # 3. Execução dos testes automatizados com pnpm
-      - name: Executar testes (pnpm)
+      - name: Rodar testes
         run: pnpm test
