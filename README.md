@@ -1,5 +1,5 @@
 # prova-ci-fernando-ferreira
-Repositório para avaliação P2 de LAB de DES MULTI do sexto período do curso de DSM da FATEC de Jacareí - Nov/2025
+Repositório para avaliação P2 de LABORATORIO de DESENVOLVIMENTO MULTIPLATAFORMA do sexto período do curso de DSM da FATEC de Jacareí - Nov/2025
 
 Este projeto implementa um pipeline de CI básico com GitHub Actions para um projeto TypeScript.
 
