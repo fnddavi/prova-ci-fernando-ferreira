@@ -19,13 +19,19 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' 
+          node-version: '18'
+          cache: 'pnpm'
 
-      # 2. Instalação das dependências
-      - name: Instalar dependências
-        run: npm install
+      # Configurar pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
-      # 3. Execução dos testes automatizados
-      # O "npm test" agora vai usar o ts-jest automaticamente
-      - name: Executar testes
-        run: npm test
+      # 2. Instalação das dependências com pnpm
+      - name: Instalar dependências (pnpm)
+        run: pnpm install
+
+      # 3. Execução dos testes automatizados com pnpm
+      - name: Executar testes (pnpm)
+        run: pnpm test
